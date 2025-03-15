@@ -21,7 +21,7 @@ password: 12345
 username: alice
 password: 54321
 
-You can create your own user, you start with 1000 points. 
+You can create your own user, you start with 1000 dollars
 
 
 Try joining a game first there are available games on the market in join a game. Enter game id, 
@@ -60,15 +60,6 @@ just not show game host's fixed choice in the blockchain. I made the games async
 REST, also it solves the problem with queuing/matchmaking theory- beyond the scope of this course. 
 
 
-All available players are in the homepage, and all data is stored in 
-a sqlite called app.db. Passwords are hashed using werkzeug hash password function. This is a one user 
-per active session application, there is no security preventing other people from accessing your session
-while you are in session, however they cannot read your password, or view any pages/databases they do not 
-have access to by containing users to the app subdir. 
-
-Since I use Jinja with Flask there are errors in the html because it expects pure html, but there is jinja code. 
-these errors should be no issue in prod. 
-
 
 Files: 
 app/main/views.py controls html
@@ -86,10 +77,6 @@ templates/ contains html
 
 config.py:  loads the database directory, correctly assigns cookies, and prevent attacker reduce vulnerability. 
 casino.py: main execution program. 
-
-
-There are more than 3 tables including games, users, and blockchain
-
 
 
 Extra Note:
