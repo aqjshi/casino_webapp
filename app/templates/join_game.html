@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Join a Game</h1>
+
+  <h2>Available Games</h2>
+  {% if available_games %}
+    <table border="1" cellpadding="5">
+      <tr>
+        <th>Game ID</th>
+        <th>Host</th>
+        <th>Host Role</th>
+        <th>Payoff Matrix</th>
+        <th>Incentive</th>
+      </tr>
+      {% for game in available_games %}
+        <tr>
+          <td>{{ game.id }}</td>
+          <td>{{ game.host.username if game.host else 'N/A' }}</td>
+          <td>{{ game.host_role }}</td>
+          <td>{{ game.matrix }}</td>
+          <td>{{ game.incentive }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No games available to join at this time.</p>
+  {% endif %}
+
+  <hr>
+
+  <h2>Join a Game</h2>
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.game_id.label }}<br>
+      {{ form.game_id() }}
+    </p>
+    <p>
+      {{ form.client_choice.label }}<br>
+      {{ form.client_choice() }}
+    </p>
+    <p>{{ form.submit() }}</p>
+  </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Offer a Game</h1>
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.host_role.label }}<br>
+      {{ form.host_role() }}
+    </p>
+    <p>
+      {{ form.matrix.label }}<br>
+      {{ form.matrix() }}
+    </p>
+    <p>
+        {{ form.host_choice()}}
+      </p>
+    <p>
+      {{ form.incentive.label }}<br>
+      {{ form.incentive() }}
+    </p>
+    <p>{{ form.submit() }}</p>
+  </form>
+{% endblock %}

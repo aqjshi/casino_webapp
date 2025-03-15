@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Welcome to the Blockchain Casino</h1>
+
+  {% if current_user.is_authenticated %}
+    <p>Logged in as: <strong>{{ current_user.username }}</strong></p>
+    <p>Your current balance: <strong>{{ current_user.balance }}</strong></p>
+  {% else %}
+    <p>Please <a href="{{ url_for('main.login') }}">log in</a> or <a href="{{ url_for('main.register') }}">register</a>.</p>
+  {% endif %}
+
+  <hr>
+  
+  <h2>Other Users and Their Balances</h2>
+  {% if users %}
+    <table border="1" cellpadding="5">
+      <tr>
+        <th>Username</th>
+        <th>Balance</th>
+      </tr>
+      {% for user in users %}
+        <tr>
+          <td>{{ user.username }}</td>
+          <td>{{ user.balance }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No other users found.</p>
+  {% endif %}
+{% endblock %}

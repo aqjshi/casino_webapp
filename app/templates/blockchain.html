@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Blockchain Ledger</h1>
+  <table border="1">
+    <tr>
+      <th>Block Number</th>
+      <th>Type</th>
+      <th>Host</th>
+      <th>Client</th>
+      <th>Game ID</th>
+      <th>Details</th>
+    </tr>
+    {% for tx in transactions %}
+      <tr>
+        <td>{{ tx.block_number }}</td>
+        <td>{{ tx.tx_type }}</td>
+        <td>{{ tx.host_user }}</td>
+        <td>{{ tx.client_user or '' }}</td>
+        <td>{{ tx.game_id }}</td>
+        <td>{{ tx.details }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
