@@ -2,13 +2,17 @@
 Qingjian Shi
 qshi10@u.rochester.edu
 
-Terminal:
 
+```bash
+pip install -r requirements.txt
+```
+
+
+```bash
 source venv/bin/activate
 
-python test.py  ( for check password input- this is the only vulnerablility for injection. )
-
 python casino.py
+```
 
 then open http://127.0.0.1:5000 port in browser.
 
@@ -78,6 +82,7 @@ templates/ contains html
 config.py:  loads the database directory, correctly assigns cookies, and prevent attacker reduce vulnerability. 
 casino.py: main execution program. 
 
+test.py run unit test
 
 Extra Note:
 
